@@ -279,7 +279,7 @@
 
             <!-- Logo in Center -->
             <!-- <div class="flex justify-center items-center flex-shrink-0 w-[450px]"> -->
-            <img src="./assets/images/313-logo.png" alt="Logo" class="w-64 md:max-w-[275px]">
+            <img src="./assets/images/313-logo.png" alt="Logo" class="w-64 max-w-[245px] md:max-w-[275px]" id="main-logo">
             <!-- </div> -->
 
             <!-- Navigation Links (Right) -->
@@ -305,7 +305,7 @@
 
 
             <div class="cover relative">
-                <img src="./assets/images/landing-image.png" alt="">
+                <img src="./assets/images/landing-image.png" alt="" class="reveal">
                 <div
                     class="absolute md:bottom-28 bottom-12 left-1/2 -translate-x-1/2 w-screen text-center overflow-visible">
                     <h1 class="instrument-serif heading-styles-main md:text-8xl text-6xl reveal">WE DEMOLISH THINGS</h1>
@@ -381,6 +381,8 @@
             document.querySelector(".sidebar").classList.remove('slide-out');
             sidebar = 'open';
             document.getElementById('close-container').classList.remove('hidden');
+            document.getElementById('main-logo').classList.remove('opacity-100')
+            document.getElementById('main-logo').classList.add('opacity-0')
         }
         
         function closeSidebar() {
@@ -388,6 +390,8 @@
             document.querySelector(".sidebar").classList.remove('slide-in');
             document.getElementById('close-container').classList.add('hidden');
             sidebar = 'open';
+            document.getElementById('main-logo').classList.add('opacity-100')
+            document.getElementById('main-logo').classList.remove('opacity-0')
         }
 
 
