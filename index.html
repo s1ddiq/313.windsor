@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>313 Windsor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
@@ -167,11 +167,54 @@
 </head>
 
 <body class="background-green-noise overflow-x-hidden">
+    <div class="sidebar z-50  fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
+        <div class="text-gray-100 text-xl">
+            <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="openSidebar()"></i>
+            </div>
+            <div class="p-2.5 mt-1 flex items-center">
+
+                <img src="./assets/images/313-logo.png" alt="" onclick="openSidebar()" class="w-full">
+
+            </div>
+
+
+        </div>
+        <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
+            <i class="bi bi-house-door-fill"></i>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()">Services</span>
+        </div>
+        <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
+            <i class="bi bi-house-door-fill"></i>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()">About Us</span>
+        </div>
+        <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
+            <i class="bi bi-house-door-fill"></i>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()">Projects</span>
+        </div>
+        <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
+            <i class="bi bi-bookmark-fill"></i>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()">Career</span>
+        </div>
+        <div class="my-2 bg-softGreen h-[2px]"></div>
+
+        <div class="p-2.5 mt-3 flex items-center  cursor-pointer" onclick="dropdown()">
+            <i class="bi bi-chat-left-text-fill"></i>
+            <div class="flex justify-between w-full items-center">
+                <span class="text-[15px] ml-4 text-softGreen font-bold">Blog</span>
+                <span class="text-sm rotate-180" id="arrow">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
     <!-- <p class="instrument-sans font-semibold">hello there :></p> -->
     <header class=" text-white w-full flex justify-center pt-2 md:pt-8">
         <nav class="flex justify-between items-center font-semibold tracking-wider md:w-5/6 w-full h-full md:p-0 p-4">
             <!-- Left Section: Menu -->
-            <a href="#" class="text-white text-base flex items-center space-x-2">
+            <a href="#" class="text-white text-base flex items-center space-x-2" onclick="openSidebar()">
                 <i class="fa fa-bars"></i>
                 <span>MENU</span>
             </a>
@@ -196,7 +239,7 @@
             </ul>
 
             <!-- Search -->
-            <a href="#" class="text-white text-base flex items-center space-x-2 sm:block hidden">
+            <a href="#" class="text-white text-base flex items-center space-x-2 sm:block hidden ">
                 <span>SEARCH</span>
                 <i class="fa fa-search"></i>
             </a>
@@ -208,16 +251,17 @@
 
     <main class="w-full flex justify-center items-center flex-wrap">
         <div class="w-5/6 flex justify-center flex-wrap">
-            
 
-                <div class="cover relative">
-                    <img src="./assets/images/landing-image.png" alt="">
-                    <div class="absolute md:bottom-28 bottom-12 left-1/2 -translate-x-1/2 w-screen text-center overflow-visible">
-                        <h1 class="instrument-serif heading-styles-main md:text-8xl text-6xl">WE DEMOLISH THINGS</h1>
-                    </div>
+
+            <div class="cover relative">
+                <img src="./assets/images/landing-image.png" alt="">
+                <div
+                    class="absolute md:bottom-28 bottom-12 left-1/2 -translate-x-1/2 w-screen text-center overflow-visible">
+                    <h1 class="instrument-serif heading-styles-main md:text-8xl text-6xl">WE DEMOLISH THINGS</h1>
                 </div>
+            </div>
 
-            
+
         </div>
 
     </main>
@@ -271,6 +315,18 @@
         <img src="./assets/images/313-logo.png" alt="" class="h-16">
     </footer>
 
+
+    <script type="text/javascript">
+        let sidebar = 'closed';
+
+
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.toggle("hidden");
+            sidebar = 'open';
+        }
+
+
+    </script>
 </body>
 
 </html>
