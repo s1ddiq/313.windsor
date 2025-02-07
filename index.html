@@ -216,7 +216,7 @@
 
 <body class="background-green-noise overflow-x-hidden">
     <div
-        class="sidebar z-50 slide-out fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
+        class="sidebar z-50 slide-out reveal fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
         <div class="text-gray-100 text-xl">
             <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="closeSidebar()"></i>
             </div>
@@ -358,7 +358,8 @@
         </div>
     </section>
 
-    <footer class="reveal mt-48 h-42 p-4 flex justify-center flex-col items-center text-white instrument-serif space-y-4">
+    <footer
+        class="reveal mt-48 h-42 p-4 flex justify-center flex-col items-center text-white instrument-serif space-y-4">
         <p>
             © 2025 - 313 Windsor. All rights reserved.
         </p>
@@ -369,6 +370,9 @@
     <script type="text/javascript">
         let sidebar = 'closed';
 
+        setTimeout(() => {
+            document.querySelector(".sidebar").classList.remove('hidden');
+        }, 250);
 
         function openSidebar() {
             document.querySelector(".sidebar").classList.add('slide-in');
