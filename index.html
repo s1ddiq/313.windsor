@@ -215,8 +215,10 @@
 
 
 <body class="background-green-noise overflow-x-hidden">
+    <div class="hidden close w-screen h-screen absolute right-0 z-40" onclick="closeSidebar()" id="close-container"></div>
     <div
-        class="sidebar z-50 slide-out reveal fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
+        class="sidebar z-20 slide-out reveal fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold  overflow-y-hidden">
+
         <div class="text-gray-100 text-xl">
             <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="closeSidebar()"></i>
             </div>
@@ -234,7 +236,7 @@
         </div>
         <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
             <i class="bi bi-house-door-fill"></i>
-            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()">About Us</span>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()"><a href="#services">About Us</a></span>
         </div>
         <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
             <i class="bi bi-house-door-fill"></i>
@@ -316,7 +318,7 @@
     </main>
 
 
-    <section class="w-full flex justify-center flex-col items-center mt-24">
+    <section class="w-full flex justify-center flex-col items-center mt-24" id="services">
         <div class="w-full flex justify-center items-center mb-24 reveal">
             <div class="flex justify-between w-5/6 items-center flex-wrap">
                 <h1 class="project-header w-120">60+ projects in 12 months.</h1>
@@ -378,11 +380,13 @@
             document.querySelector(".sidebar").classList.add('slide-in');
             document.querySelector(".sidebar").classList.remove('slide-out');
             sidebar = 'open';
+            document.getElementById('close-container').classList.remove('hidden');
         }
-
+        
         function closeSidebar() {
             document.querySelector(".sidebar").classList.add('slide-out');
             document.querySelector(".sidebar").classList.remove('slide-in');
+            document.getElementById('close-container').classList.add('hidden');
             sidebar = 'open';
         }
 
