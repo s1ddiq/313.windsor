@@ -163,7 +163,7 @@
                 transform: translateX(-120%);
                 display: none;
             }
-            
+
             100% {
                 display: none;
 
@@ -175,12 +175,23 @@
                 transform: translateX(-120%);
                 display: fixed;
             }
-            
+
             to {
                 display: fixed;
                 transform: translateX(0);
 
             }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
     <script>
@@ -201,8 +212,11 @@
     </script>
 </head>
 
+
+
 <body class="background-green-noise overflow-x-hidden">
-    <div class="sidebar z-50 slide-out fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
+    <div
+        class="sidebar z-50 slide-out fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
         <div class="text-gray-100 text-xl">
             <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="closeSidebar()"></i>
             </div>
@@ -292,7 +306,7 @@
                 <img src="./assets/images/landing-image.png" alt="">
                 <div
                     class="absolute md:bottom-28 bottom-12 left-1/2 -translate-x-1/2 w-screen text-center overflow-visible">
-                    <h1 class="instrument-serif heading-styles-main md:text-8xl text-6xl">WE DEMOLISH THINGS</h1>
+                    <h1 class="instrument-serif heading-styles-main md:text-8xl text-6xl reveal">WE DEMOLISH THINGS</h1>
                 </div>
             </div>
 
@@ -303,19 +317,20 @@
 
 
     <section class="w-full flex justify-center flex-col items-center mt-24">
-        <div class="w-full flex justify-center items-center mb-24">
+        <div class="w-full flex justify-center items-center mb-24 reveal">
             <div class="flex justify-between w-5/6 items-center flex-wrap">
                 <h1 class="project-header w-120">60+ projects in 12 months.</h1>
                 <img src="./assets/line.svg" alt="" class="w-50 text-end">
-                <p class="paragraph-styles-main sm:w-2/6 text-lg w-full">We successfully aced 60+ large-scale projects in the year
+                <p class="paragraph-styles-main sm:w-2/6 text-lg w-full sm:pt-0 pt-4">We successfully aced 60+
+                    large-scale projects in the year
                     2024, and
                     we’re just getting started..</p>
             </div>
         </div>
 
 
-        <div class="flex justify-between w-5/6 flex-wrap">
-            <div class="relative bg-softGold service-frame p-4">
+        <div class="flex justify-between w-5/6 flex-wrap reveal">
+            <div class="relative bg-softGold service-frame p-4 reveal">
                 <h2 class="service-frame-header text-4xl">Demolition</h2>
                 <p class="service-frame-paragraph">Traditional demolition is dead. Deconstruction maximizes reuse and
                     minimizes waste. Our strategy is simple: Dismantle the structure, salvage reusables, recycle debris,
@@ -323,7 +338,7 @@
                 <button class="service-frame-button mt-8">EXPLORE MORE</button>
                 <img src="./assets/building.svg" alt="" class="absolute bottom-0 right-0 w-1/2">
             </div>
-            <div class="relative bg-softGold service-frame p-4">
+            <div class="relative bg-softGold service-frame p-4 reveal">
                 <h2 class="service-frame-header text-4xl">Lead Abatement</h2>
                 <p class="service-frame-paragraph">Lead exposure is a silent threat. Safe removal protects people and
                     the planet. This strategy is simple too. Contain the hazard, extract toxic materials, dispose
@@ -331,7 +346,7 @@
                 <button class="service-frame-button mt-8">EXPLORE MORE</button>
                 <p class="absolute custom-paragraph-A -bottom-4 right-0 opacity-0-8 ">Pb</p>
             </div>
-            <div class="relative bg-softGold service-frame p-4">
+            <div class="relative bg-softGold service-frame p-4 reveal">
                 <h2 class="service-frame-header text-4xl">Asbestos Removal</h2>
                 <p class="service-frame-paragraph">Asbestos doesn’t belong in the air you and I breathe. Proper removal
                     ensures safety for everyone. At the risk of being cliche, this is also quite simple. Isolate,
@@ -343,7 +358,7 @@
         </div>
     </section>
 
-    <footer class="mt-48 h-42 p-4 flex justify-center flex-col items-center text-white instrument-serif space-y-4">
+    <footer class="reveal mt-48 h-42 p-4 flex justify-center flex-col items-center text-white instrument-serif space-y-4">
         <p>
             © 2025 - 313 Windsor. All rights reserved.
         </p>
@@ -368,6 +383,24 @@
         }
 
 
+
+    </script>
+
+    <script> document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".reveal");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add("visible");
+                        }, index * 300); // Delay each section by 300ms
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </body>
 
