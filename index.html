@@ -147,6 +147,41 @@
             text-shadow: 0px 2px 0px #000;
 
         }
+
+        .slide-in {
+            animation: slideIn 1s forwards;
+            animation-iteration-count: 1;
+        }
+
+        .slide-out {
+            animation: slideOut 1s forwards;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes slideOut {
+            50% {
+                transform: translateX(-120%);
+                display: none;
+            }
+            
+            100% {
+                display: none;
+
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-120%);
+                display: fixed;
+            }
+            
+            to {
+                display: fixed;
+                transform: translateX(0);
+
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -167,9 +202,9 @@
 </head>
 
 <body class="background-green-noise overflow-x-hidden">
-    <div class="sidebar z-50 hidden fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
+    <div class="sidebar z-50 hidden-smooth fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold">
         <div class="text-gray-100 text-xl">
-            <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="openSidebar()"></i>
+            <div class="my-2  flex mb-4"><i class="fa fa-close text-3xl text-softGreen" onclick="closeSidebar()"></i>
             </div>
             <div class="p-2.5 mt-1 flex items-center">
 
@@ -272,7 +307,7 @@
             <div class="flex justify-between w-5/6 items-center flex-wrap">
                 <h1 class="project-header w-120">60+ projects in 12 months.</h1>
                 <img src="./assets/line.svg" alt="" class="w-50 text-end">
-                <p class="paragraph-styles-main sm:w-2/6 w-full text-lg">We successfully aced 60+ large-scale projects in the year
+                <p class="paragraph-styles-main sm:w-2/6 text-lg w-full">We successfully aced 60+ large-scale projects in the year
                     2024, and
                     we’re just getting started..</p>
             </div>
@@ -321,7 +356,14 @@
 
 
         function openSidebar() {
-            document.querySelector(".sidebar").classList.toggle("hidden");
+            document.querySelector(".sidebar").classList.add('slide-in');
+            document.querySelector(".sidebar").classList.remove('slide-out');
+            sidebar = 'open';
+        }
+
+        function closeSidebar() {
+            document.querySelector(".sidebar").classList.add('slide-out');
+            document.querySelector(".sidebar").classList.remove('slide-in');
             sidebar = 'open';
         }
 
