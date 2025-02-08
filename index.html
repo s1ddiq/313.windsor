@@ -215,7 +215,8 @@
 
 
 <body class="background-green-noise overflow-x-hidden">
-    <div class="hidden close w-screen h-full fixed top-0 right-0 z-40" onclick="closeSidebar()" id="close-container"></div>
+    <div class="hidden close w-screen h-full fixed top-0 right-0 z-40" onclick="closeSidebar()" id="close-container">
+    </div>
     <div
         class="sidebar z-20 slide-out reveal fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-softGold  overflow-y-hidden">
 
@@ -236,7 +237,8 @@
         </div>
         <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
             <i class="bi bi-house-door-fill"></i>
-            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()"><a href="#services">About Us</a></span>
+            <span class="text-[15px] ml-4 text-softGreen font-bold" onclick="openSidebar()"><a href="#services">About
+                    Us</a></span>
         </div>
         <div class="p-2.5 mt-3 flex items-center  cursor-pointer">
             <i class="bi bi-house-door-fill"></i>
@@ -262,7 +264,7 @@
 
 
     <!-- <p class="instrument-sans font-semibold">hello there :></p> -->
-    <header class=" text-white w-full flex justify-center pt-2 md:pt-8">
+    <header class=" text-white w-full flex justify-center pt-2 md:pt-8 z-20">
         <nav class="flex justify-between items-center font-semibold tracking-wider md:w-5/6 w-full h-full md:p-0 p-4">
             <!-- Left Section: Menu -->
             <a href="#" class="text-white text-base flex items-center space-x-2" onclick="openSidebar()">
@@ -279,7 +281,8 @@
 
             <!-- Logo in Center -->
             <!-- <div class="flex justify-center items-center flex-shrink-0 w-[450px]"> -->
-            <img src="./assets/images/313-logo.png" alt="Logo" class="w-64 max-w-[245px] md:max-w-[275px]" id="main-logo">
+            <img src="./assets/images/313-logo.png" alt="Logo" class=" max-w-[205px] md:max-w-[275px]"
+                id="main-logo">
             <!-- </div> -->
 
             <!-- Navigation Links (Right) -->
@@ -320,18 +323,18 @@
 
     <section class="w-full flex justify-center flex-col items-center mt-24" id="services">
         <div class="w-full flex justify-center items-center mb-24 reveal">
-            <div class="flex justify-between w-5/6 items-center flex-wrap">
-                <h1 class="project-header w-120">60+ projects in 12 months.</h1>
-                <img src="./assets/line.svg" alt="" class="w-50 text-end">
-                <p class="paragraph-styles-main sm:w-2/6 text-lg w-full sm:pt-0 pt-4">We successfully aced 60+
-                    large-scale projects in the year
+            <div class="flex justify-center md:justify-between w-5/6 items-center flex-wrap">
+                <h1 class="project-header w-120 text-center md:text-left ">60+ projects in 12 months.</h1>
+                <img src="./assets/line.svg" alt="" class="w-50 md:block hidden text-end">
+                <p class="paragraph-styles-main md:w-2/6 text-lg w-full sm:pt-0 pt-4 text-center md:text-left">We successfully aced 60+
+                    large-scale projectsin the year
                     2024, and
                     we’re just getting started..</p>
             </div>
         </div>
 
 
-        <div class="flex justify-between w-5/6 flex-wrap reveal">
+        <div class="flex justify-center md:justify-between w-5/6 flex-wrap reveal">
             <div class="relative bg-softGold service-frame p-4 reveal">
                 <h2 class="service-frame-header text-4xl">Demolition</h2>
                 <p class="service-frame-paragraph">Traditional demolition is dead. Deconstruction maximizes reuse and
@@ -384,7 +387,7 @@
             document.getElementById('main-logo').classList.remove('opacity-100')
             document.getElementById('main-logo').classList.add('opacity-0')
         }
-        
+
         function closeSidebar() {
             document.querySelector(".sidebar").classList.add('slide-out');
             document.querySelector(".sidebar").classList.remove('slide-in');
